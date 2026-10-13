@@ -45,12 +45,11 @@ const loginUser = async (req, res) => {
     try {
         // check if user is already exist
 
-        const user = User.findOne((email) : email.toLowerCase());
+        const user = await User.findOne({ email : email.toLowerCase()} );
 
         if(!user) {
             return res.status(400).json({message: "user not found"});
         }
-        
         
     } catch (error) {
         
