@@ -1,7 +1,6 @@
 import { User } from "../models/user.model.js";
 
 // registered User
-
 const registerUser = async (req, res) => {
     try {
         //basic validations
@@ -39,7 +38,6 @@ const registerUser = async (req, res) => {
 };
 
 // login User
-
 const loginUser = async (req, res) => {
     try {
         // check if user is already exist
@@ -77,7 +75,6 @@ const loginUser = async (req, res) => {
 };
 
 // log-out user
-
 const logoutUser = async ( req, res ) => {
     try {
         const { email } = req.body;
