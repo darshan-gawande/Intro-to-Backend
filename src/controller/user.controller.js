@@ -76,4 +76,27 @@ const loginUser = async (req, res) => {
     }
 };
 
-export  { registerUser, loginUser };
+// log-out user
+
+const logoutUser = async ( req, res ) => {
+    try {
+        const { email } = req.body;
+
+        const user = User.findOne({ email: email.toLowerCase() });
+
+        if(!user) {
+            return res.status(401).json({ 
+                message: "user not found"
+            })
+        };
+
+        return res.status(201).json({ 
+            message: "logout Successfully"
+        });
+    } catch (error) {
+        return res.status(501).json({ 
+            message: "Internal Server Error", error});
+    }
+}
+
+export  { registerUser, loginUser, logoutUser };
